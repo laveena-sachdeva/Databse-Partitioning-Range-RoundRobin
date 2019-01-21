@@ -1,6 +1,6 @@
-DATABASE PARTITIONING
+# DATABASE PARTITIONING
 
-The required task is to simulate data partitioning approaches on-top of an open source relational database management system (i.e., PostgreSQL). Each student must generate a set of Python functions that load the input data into a relational table, partition the table using different horizontal fragmentation approaches, and insert new tuples into the right fragment.
+The required task is to simulate data partitioning approaches on-top of an open source relational database management system (i.e., PostgreSQL). Here, we generate a set of Python functions that load the input data into a relational table, partition the table using different horizontal fragmentation approaches, and insert new tuples into the right fragment.
 
 Input Data: The input data is a Movie Rating data set collected from the MovieLens website (http://movielens.org).  The raw data is available in the file rating.dat.
 
