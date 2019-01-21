@@ -2,7 +2,8 @@
 
 The required task is to simulate data partitioning approaches on-top of an open source relational database management system (i.e., PostgreSQL). Here, we generate a set of Python functions that load the input data into a relational table, partition the table using different horizontal fragmentation approaches, and insert new tuples into the right fragment.
 
-Input Data: The input data is a Movie Rating data set collected from the MovieLens website (http://movielens.org).  The raw data is available in the file rating.dat.
+### Input Data:  
+The input data is a Movie Rating data set collected from the MovieLens website (http://movielens.org).  The raw data is available in the file rating.dat.
 
 The rating.dat file contains 10 million ratings and 100,000 tag applications applied to 10,000 movies by 72,000 users. Each line of this file represents one rating of one movie by one user, and has the following format:
                                                   UserID::MovieID::Rating::Timestamp
@@ -15,25 +16,25 @@ Ratings are made on a 5-star scale, with half-star increments. Timestamps repres
 
                                                           1::231::5::838983392
 
-loadratings():
+#### loadratings():  
 Implement a Python function LoadRatings() that takes a file system absolute path that contains the rating.dat file as input. LoadRatings() then loads the rating.dat content into a table (saved in PostgreSQL) named Ratings that has the following schema:
 UserID (int) – MovieID (int) – Rating (float)
 
-rangepartition():
+#### rangepartition():  
 Implement a Python function Range_Partition() that takes as input: (1) the Ratings table stored in PostgreSQL and (2) an integer value N; that represents the number of partitions. Range_Partition() then generates N horizontal fragments of the Ratings table and store them in PostgreSQL. The algorithm should partition the ratings table based on N uniform ranges of the Rating attribute.
 
-roundrobinpartition ():
+#### roundrobinpartition ():  
 Implement a Python function RoundRobin_Partition() that takes as input: (1) the Ratings tabletored in PostgreSQL and (2) an integer value N; that represents the number of partitions. The function then generates N horizontal fragments of the Ratings table and stores them in PostgreSQL. The algorithm should partition the ratings table using the round robin partitioning approach.
 
-roundrobininsert():
+#### roundrobininsert():   
 Implement a Python function RoundRobin_Insert() that takes as input: (1) Ratings table stored in PostgreSQL, (2) UserID, (3) ItemID, (4) Rating. RoundRobin_Insert() then inserts a new tuple to the Ratings table and the right fragment based on the round robin approach.
 
-rangeinsert():
+#### rangeinsert():  
 Implement a Python function Range_Insert() that takes as input: (1) Ratings table stored in Post-greSQL (2) UserID, (3) ItemID, (4) Rating. Range_Insert() then inserts a new tuple to the Ratings able and the correct fragment (of the partitioned ratings table) based upon the Rating value.
 
 
 
-Question with respect to Partitioning:
+#### Questions with respect to Partitioning:
 
 The number of partitions here refer to the number of tables to be created.
 
@@ -60,7 +61,7 @@ Partition 2 has values (3.34, 5]
 Uniform range means a region is divided uniformly, I hope the example gives a clear picture. 
 
 
-ABOUT THE CODE:
+### ABOUT THE CODE:
 
 databasePartitioningMain.py: This has the entry function. It imports Interface.py and testHelper.py which has all the functions described above.  You will have to adjust/change the global variables declared at the top of this file according to your input.
 
